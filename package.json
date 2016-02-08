@@ -1,0 +1,20 @@
+{
+  "name": "lerna-run",
+  "version": "0.0.1",
+  "description": "run command in each packages of lerna",
+  "main": "index.js",
+  "bin": {
+    "lerna-run": "bin/lerna-run.js"
+  },
+  "scripts": {
+    "test": "eslint bin/*.js"
+  },
+  "keywords": [
+    "lerna",
+    "monorepo",
+    "cli",
+    "command"
+  ],
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT"
+}
