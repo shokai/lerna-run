@@ -9,7 +9,7 @@ var fs = require("fs");
 var spawn = require("child_process").spawn;
 var async = require("async");
 
-var pkgs = fs.readdirSync(path.resolve(__dirname, "../packages/"));
+var pkgs = fs.readdirSync(path.resolve("./packages/"));
 var each = async.eachSeries;
 
 var args = process.argv.slice(2);
