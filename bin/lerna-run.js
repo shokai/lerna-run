@@ -26,7 +26,7 @@ if(cmd.length < 1) process.exit(0);
 
 each(pkgs, function(pkg, next){
 
-  var pkgdir = path.resolve(__dirname, "../packages", pkg);
+  var pkgdir = path.resolve("./packages", pkg);
   var _spawn = spawn("sh", ["-c", cmd], {
     cwd: pkgdir,
     stdio: ['pipe', process.stdout, process.stderr],
