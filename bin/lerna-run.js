@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+/* eslint no-console: 0 */
+
 "use strict";
 
 var path = require("path");

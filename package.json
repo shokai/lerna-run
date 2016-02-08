@@ -7,7 +7,8 @@
     "lerna-run": "bin/lerna-run.js"
   },
   "scripts": {
-    "test": "eslint bin/*.js"
+    "test": "eslint bin/*.js",
+    "watch": "chokidar bin/*.js -c 'npm test'"
   },
   "keywords": [
     "lerna",
@@ -16,5 +17,14 @@
     "command"
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-if-in-test": "^0.2.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "async": "^1.5.2"
+  }
 }
