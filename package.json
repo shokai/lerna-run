@@ -1,7 +1,7 @@
 {
   "name": "lerna-run",
   "version": "0.0.1",
-  "description": "run command in each packages of lerna",
+  "description": "run command in each packages of monorepo (lerna)",
   "main": "index.js",
   "bin": {
     "lerna-run": "bin/lerna-run.js"
