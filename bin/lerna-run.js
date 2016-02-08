@@ -9,13 +9,25 @@ var fs = require("fs");
 var spawn = require("child_process").spawn;
 var async = require("async");
 
+var pkg = require("../package.json");
 var pkgs = fs.readdirSync(path.resolve("./packages/"));
 var each = async.eachSeries;
 
 var args = process.argv.slice(2);
-if(args[0] === "--parallel"){
+
+var options = [];
+while(/^-.+/.test(args[0])){
+  options.push(args.shift());
+}
+
+switch(options[0]){
+case "--parallel":
   each = async.each;
-  args.shift();
+  break;
+case "-v":
+case "--version":
+  console.log(pkg.name + " v" + pkg.version);
+  break;
 }
 var cmd = args.join(' ');
 
