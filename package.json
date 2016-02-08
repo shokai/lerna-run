@@ -29,5 +29,16 @@
   },
   "dependencies": {
     "async": "^1.5.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokai/lerna-run.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shokai/lerna-run/issues"
+  },
+  "homepage": "https://github.com/shokai/lerna-run#readme"
 }
