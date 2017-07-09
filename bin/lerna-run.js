@@ -36,15 +36,21 @@ console.log("packages: " + JSON.stringify(pkgs));
 
 if(cmd.length < 1) process.exit(0);
 
-each(pkgs, function(pkg, next){
+var exitCode = 0;
 
+each(pkgs, function(pkg, next){
   var pkgdir = path.resolve("./packages", pkg);
   var _spawn = spawn("sh", ["-c", cmd], {
     cwd: pkgdir,
     stdio: ['pipe', process.stdout, process.stderr],
     env: process.env
-  })
-  _spawn.on("close", next);
+  });
+  _spawn.on("close", (code) => {
+    exitCode = exitCode || code;
+    if (exitCode !== 0)
+      process.exit(exitCode);
+    next();
+  });
 
 }, function(err, res){
   if(err) console.error(err);
