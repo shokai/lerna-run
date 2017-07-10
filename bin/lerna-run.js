@@ -36,8 +36,6 @@ console.log("packages: " + JSON.stringify(pkgs));
 
 if(cmd.length < 1) process.exit(0);
 
-var exitCode = 0;
-
 each(pkgs, function(pkg, next){
   var pkgdir = path.resolve("./packages", pkg);
   var _spawn = spawn("sh", ["-c", cmd], {
@@ -45,10 +43,10 @@ each(pkgs, function(pkg, next){
     stdio: ['pipe', process.stdout, process.stderr],
     env: process.env
   });
-  _spawn.on("close", (code) => {
-    exitCode = exitCode || code;
-    if (exitCode !== 0)
+  _spawn.on("close", (exitCode) => {
+    if (exitCode !== 0) {
       process.exit(exitCode);
+    }
     next();
   });
 
