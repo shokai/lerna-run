@@ -44,7 +44,7 @@ each(pkgs, function(pkg, next){
     env: process.env
   });
   _spawn.on("close", (exitCode) => {
-    if (exitCode !== 0) {
+    if (exitCode) {
       process.exit(exitCode);
     }
     next();
